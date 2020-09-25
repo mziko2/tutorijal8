@@ -18,7 +18,7 @@ public class TransportDAO {
     private ObservableList<Bus> busevi= FXCollections.observableArrayList();
     private ObservableList<Driver> vozaci= FXCollections.observableArrayList();
     private SimpleObjectProperty<Bus> curernB= new SimpleObjectProperty();
-    private SimpleObjectProperty<Driver> curernV= new SimpleObjectProperty();
+    private SimpleObjectProperty curernV= new SimpleObjectProperty();
 
     public static void setInstance(TransportDAO instance) {
         TransportDAO.instance = instance;
@@ -68,7 +68,7 @@ public class TransportDAO {
         this.curernB.set(curernB);
     }
 
-    public Driver getCurernV() {
+    public Object getCurernV() {
         return curernV.get();
     }
 
@@ -104,7 +104,13 @@ public class TransportDAO {
         }
 
     }
-
+    public  void napuni(){
+        addDriver(new Driver("Test","Testović","1111111111111", LocalDate.now().minusYears(20),LocalDate.now()));
+        addDriver(new Driver("Priprema","Pripremović","2222222222222",LocalDate.now().minusYears(23),LocalDate.now().minusYears(1)));
+        addBus(new Bus("Man","Serija",52));
+        addBus(new Bus("Mercedes-Benz","Serija",49));
+        addBus(new Bus("Iveco","Serija",54));
+    }
     public void resetDatabase() {
 
         Scanner ulaz;
@@ -243,9 +249,5 @@ public class TransportDAO {
             if(d.getJMB().equals(jmbg)) return d;
         }
         return  dr;
-    }
-
-    public void napuni() {
-
     }
 }

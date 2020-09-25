@@ -1,5 +1,5 @@
 package ba.unsa.etf.rs.tutorijal8;
-
+/*
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -125,4 +125,4 @@ class Zadatak2Test {
         System.setIn(inputHolder);
         return defaultSystemIn;
     }
-}
+}*/

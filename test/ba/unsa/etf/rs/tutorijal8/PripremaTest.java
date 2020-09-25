@@ -1,5 +1,5 @@
 package ba.unsa.etf.rs.tutorijal8;
-
+/*
 
 import org.junit.jupiter.api.*;
 
@@ -89,4 +89,4 @@ class PripremaTest {
         );
 
     }
-}
+}*/

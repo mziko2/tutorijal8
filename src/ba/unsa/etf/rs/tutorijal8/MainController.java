@@ -1,13 +1,11 @@
 package ba.unsa.etf.rs.tutorijal8;
 
-
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
-
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +13,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.awt.print.Book;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Optional;
-
+import java.util.Scanner;
 
 public class MainController {
     @FXML  private TableView<Bus> tabBus;
@@ -29,11 +32,9 @@ public class MainController {
     @FXML private TableColumn<Bus, String>coVozac1;
     @FXML private TableColumn<Bus, String>coVozac2;
     private static TransportDAO dao;
-
     MainController(TransportDAO model){
         this.dao=model;
     }
-
     @FXML
     private void initialize(){
         dao.resetDatabase();
@@ -168,5 +169,9 @@ public class MainController {
     private static void ukloniAutobus(Bus bus) {
         dao.deleteBus(bus);
     }
+
+
+
+
 
 }
