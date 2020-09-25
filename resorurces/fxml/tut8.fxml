@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <SplitPane dividerPositions="0.5468227424749164" BorderPane.alignment="CENTER">
+            <items>
+                <TableView fx:id="tabBus" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+
+                    <columns>
+                        <TableColumn fx:id="coMarka" prefWidth="66.99998474121094" text="Marka autobusa" />
+                        <TableColumn fx:id="coBrS" prefWidth="93.0" text="Broj sjedista" />
+                        <TableColumn fx:id="coVozac1" maxWidth="-1.0" minWidth="70.0" prefWidth="-1.0" text="Vozac 1" />
+                        <TableColumn fx:id="coVozac2" maxWidth="94.0" minWidth="70.0" prefWidth="94.0" text="Vozac 2" />
+                    </columns>
+                </TableView>
+                <TableView  fx:id="tabVoz">
+                    <columns>
+                        <TableColumn  fx:id="coIme" minWidth="0.0" prefWidth="138.0" text="Ime vozaca" />
+                        <TableColumn fx:id="coJmbg" prefWidth="158.0" text="JMBG" />
+                    </columns>
+                </TableView>
+            </items>
+        </SplitPane>
+    </center>
+    <top>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <Button fx:id="btnDodajV" mnemonicParsing="false" onAction="#dodajVozaca" text="Dodaj vozaca" />
+                <Button fx:id="btnOduzmiV" mnemonicParsing="false" onAction="#oduzmiVozaca" text="Otpusti vozaca" />
+                <Button fx:id="btnDodajB" mnemonicParsing="false" onAction="#dodajAutobus" text="Dodaj autobus" />
+                <Button fx:id="btnObrisiB" mnemonicParsing="false" onAction="#obrisiAutobus" text="Obrisi autobus" />
+                <Button fx:id="btnDodjeliV" mnemonicParsing="false" onAction="#dodjeliVozaca" text="Dodjeli vozaca" />
+            </items>
+        </ToolBar>
+    </top>
+</BorderPane>

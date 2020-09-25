@@ -1,44 +1,100 @@
 package ba.unsa.etf.rs.tutorijal8;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+import java.util.ArrayList;
+
 public class Bus {
-    private String maker, serija;
-    private int seatNumber;
 
-    public Bus(String maker, String serija, int seatNumber, Driver driverOne, Driver driverTwo) {
-        this.maker = maker;
-        this.serija = serija;
-        this.seatNumber = seatNumber;
-        this.driverOne = driverOne;
-        this.driverTwo = driverTwo;
-        this.vozaci = vozaci;
-    }
 
-    private Driver driverOne;
-
-    public Driver getDriverTwo() {
-        return driverTwo;
-    }
-
-    public void setDriverTwo(Driver driverTwo) {
-        this.driverTwo = driverTwo;
-    }
-
-    private Driver driverTwo;
-    public String getMaker() {
+    private SimpleStringProperty maker;
+    private String serija;
+    private SimpleIntegerProperty seatNumber;
+    private SimpleObjectProperty<Driver> driverTwo;
+    private SimpleObjectProperty<Driver> driverOne;
+    private SimpleStringProperty  Jmbg1= new SimpleStringProperty();
+    private SimpleStringProperty Jmbg2= new SimpleStringProperty();
+    public SimpleStringProperty makerProperty() {
         return maker;
     }
+    public String getJmbg1() {
+        return Jmbg1.get();
+    }
 
-    public Driver getDriverOne() {
+    public SimpleStringProperty jmbg1Property() {
+        return Jmbg1;
+    }
+
+    public void setJmbg1(String jmbg1) {
+        this.Jmbg1.set(jmbg1);
+    }
+
+    public String getJmbg2() {
+        return Jmbg2.get();
+    }
+
+    public SimpleStringProperty jmbg2Property() {
+        return Jmbg2;
+    }
+
+    public void setJmbg2(String jmbg2) {
+        this.Jmbg2.set(jmbg2);
+    }
+    public void setMaker(String maker) {
+        this.maker.set(maker);
+    }
+
+    public SimpleIntegerProperty seatNumberProperty() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber.set(seatNumber);
+    }
+
+    public SimpleObjectProperty<Driver> driverOneProperty() {
         return driverOne;
     }
 
     public void setDriverOne(Driver driverOne) {
-        this.driverOne = driverOne;
+        this.Jmbg1= new SimpleStringProperty(driverOne.getJMB());
+        this.driverOne.set(driverOne);
     }
 
-    public void setMaker(String maker) {
-        this.maker = maker;
+    public SimpleObjectProperty<Driver> driverTwoProperty() {
+        return driverTwo;
     }
+
+    public void setDriverTwo(Driver driverTwo) {
+        this.Jmbg2= new SimpleStringProperty(driverTwo.getJMB());
+        this.driverTwo.set(driverTwo);
+    }
+
+    public Bus(String maker, String serija, int seatNumber, Driver driverOne, Driver driverTwo, String jed,String dva) {
+        this.maker = new SimpleStringProperty( maker);
+        this.serija = serija;
+        this.seatNumber = new SimpleIntegerProperty( seatNumber);
+        this.driverOne = new SimpleObjectProperty<>(driverOne);
+        this.driverTwo = new SimpleObjectProperty<>(driverTwo);
+        this.Jmbg1= new SimpleStringProperty(jed);
+        this.Jmbg2= new SimpleStringProperty(dva);
+    }
+
+
+    public Driver getDriverTwo() {
+        return driverTwo.get();
+    }
+
+
+
+
+
+    public Driver getDriverOne() {
+        return driverOne.get();
+    }
+
 
     public String getSerija() {
         return serija;
@@ -48,13 +104,6 @@ public class Bus {
         this.serija = serija;
     }
 
-    public int getSeatNumber() {
-        return seatNumber;
-    }
-
-    public void setSeatNumberint(int seatNumber) {
-        this.seatNumber = seatNumber;
-    }
 
     public int getVozaci() {
         return vozaci;
@@ -67,17 +116,16 @@ public class Bus {
     private int vozaci;
 
     public Bus(String maker, String serija, int brojSjedista, int vozaci) {
-        this.maker = maker;
+        this.maker = new SimpleStringProperty(maker);
         this.serija = serija;
-        this.seatNumber = brojSjedista;
+        this.seatNumber = new SimpleIntegerProperty(brojSjedista);
         this.vozaci = vozaci;
     }
 
     public Bus(String maker, String serija, int brojSjedista) {
-        this.maker = maker;
+        this.maker = new SimpleStringProperty(maker);
         this.serija = serija;
-        this.seatNumber = brojSjedista;
-    }
+        this.seatNumber = new SimpleIntegerProperty(brojSjedista);    }
 
     @Override
     public String toString() {
@@ -87,4 +135,11 @@ public class Bus {
         return s;
     }
 
+    public int getSeatNumber() {
+        return seatNumber.get();
+    }
+
+    public String getMaker() {
+        return  maker.get();
+    }
 }
